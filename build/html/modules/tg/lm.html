@@ -84,31 +84,172 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../preface.html">前言</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../statements.html">声明</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../functions.html">功能</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">功能</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../functions.html#sl">序列标注，sl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functions.html#sp">结构分析，sp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functions.html#sr">句子关系，sr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functions.html#tc">文本分类，tc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functions.html#tg">文本生成，tg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../functions.html#we">词向量，we</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#id2">安装依赖</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../installation.html#pytorch">安装pytorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../installation.html#torchtext">安装torchtext</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../models.html">模型</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">教程</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../we/index.html">词向量</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tc/index.html">文本分类</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sl/index.html">序列标注</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../we/index.html">词向量</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../we/cbow.html">词袋模型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../we/cbow.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../we/cbow.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../we/skip_gram.html">跳字模型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../we/skip_gram.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../we/skip_gram.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tc/index.html">文本分类</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tc/sa.html">情感极性分析</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tc/sa.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tc/sa.html#id3">2.使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tc/re.html">关系抽取</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tc/re.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tc/re.html#id3">2.使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sl/index.html">序列标注</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sl/cws.html">中文分词</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sl/cws.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sl/cws.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sl/pos.html">词性标注</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sl/pos.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sl/pos.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sl/ner.html">命名实体识别</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sl/ner.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sl/ner.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sl/srl.html">语义角色标注</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sl/srl.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sl/srl.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">文本生成</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">语言模型</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">1.训练数据</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">2.使用示例</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="mt.html">机器翻译</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cb.html">聊天机器人</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ts.html">文本摘要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mt.html">机器翻译</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mt.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mt.html#id2">2.使用示例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../sr/index.html">句子关系</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sp/index.html">结构分析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tools/index.html">工具模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cb.html">聊天机器人</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cb.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cb.html#id2">2.使用示例</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../architecture.html">架构</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">参考</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ts.html">文本摘要</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ts.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ts.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sr/index.html">句子关系</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sr/ss.html">语句相似度</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sr/ss.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sr/ss.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sr/te.html">文本蕴涵</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sr/te.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sr/te.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sp/index.html">结构分析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sp/gdp.html">基于图的依存句法分析</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sp/gdp.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sp/gdp.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sp/tdp.html">基于转移的依存句法分析</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sp/tdp.html#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sp/tdp.html#id2">2.使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/index.html">工具模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tools/word_vector.html">词向量</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture.html">架构</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#id2">项目架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#id3">架构说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#base">base目录</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture.html#config">config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture.html#model">model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture.html#module">module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../architecture.html#tool">tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#util">util目录</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#deep-learning">Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#nlp">NLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id2">知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#pytorch">Pytorch教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#torchtext">torchtext介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id3">其他工具模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id4">词向量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id5">数据集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id6">序列标注</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id7">文本分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id8">命名实体识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id9">关系抽取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id10">事件抽取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id11">语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id12">文本生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id13">语句相似度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id14">文本蕴含</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id15">中文分词</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id16">词性标注</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id17">指代消解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id18">依存句法分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id19">自动摘要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id20">阅读理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id21">聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../references.html#id22">其他</a></li>
+</ul>
+</li>
 </ul>
 
             
