@@ -46,7 +46,9 @@
 
 ## 词向量
 
+- [Chinese-Word-Vectors](https://github.com/Embedding/Chinese-Word-Vectors)
 - [ChineseEmbedding](https://github.com/liuhuanyong/ChineseEmbedding)
+- [预训练好的词向量资源 - 简书](https://www.jianshu.com/p/5c715577a3f5)
 - [pytorch_word2vec](https://github.com/weberrr/pytorch_word2vec)
 - [pytorch-word-embedding](https://github.com/jeffchy/pytorch-word-embedding)
 

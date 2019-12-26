@@ -10,5 +10,6 @@
    文本生成 </modules/tg/index>
    句子关系 </modules/sr/index>
    结构分析 </modules/sp/index>
+   工具模块 </modules/tools/index>
 
 

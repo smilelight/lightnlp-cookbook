@@ -14,6 +14,7 @@ lightNLP, 很基础的自然语言处理框架
    功能 </functions>
    安装 </installation>
    模型 </models>
+   数据 </data>
    教程 </modules/index>
    架构 </architecture>
    参考 </references>

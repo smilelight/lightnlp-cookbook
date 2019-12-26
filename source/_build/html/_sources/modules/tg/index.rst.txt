@@ -1,7 +1,10 @@
-lightNLP, 很基础的自然语言处理框架
+文本生成，tg
 =============================================
 
 .. toctree::
    :maxdepth: 1
    
-   中文分词 </modules/sl/cws>
+   语言模型 </modules/tg/lm>
+   机器翻译 </modules/tg/mt>
+   聊天机器人 </modules/tg/cb>
+   文本摘要 </modules/tg/ts>

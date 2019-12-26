@@ -1,7 +1,8 @@
-lightNLP, 很基础的自然语言处理框架
+句子关系，sr
 =============================================
 
 .. toctree::
    :maxdepth: 1
    
-   中文分词 </modules/sl/cws>
+   语句相似度 </modules/sr/ss>
+   文本蕴涵 </modules/sr/te>

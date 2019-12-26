@@ -1,7 +1,8 @@
-lightNLP, 很基础的自然语言处理框架
+结构分析，sp
 =============================================
 
 .. toctree::
    :maxdepth: 1
    
-   中文分词 </modules/sl/cws>
+   基于图的依存句法分析 </modules/sp/gdp>
+   基于转移的依存句法分析 </modules/sp/tdp>

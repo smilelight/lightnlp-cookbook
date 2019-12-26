@@ -1,7 +1,7 @@
-lightNLP, 很基础的自然语言处理框架
+工具模块
 =============================================
 
 .. toctree::
    :maxdepth: 1
    
-   中文分词 </modules/sl/cws>
+   词向量 </modules/tools/word_vector>
