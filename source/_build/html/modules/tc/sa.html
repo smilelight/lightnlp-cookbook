@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>情感极性分析，sa &mdash; lightnlp-cookbook 0.3.3 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> lightnlp-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture.html">架构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">参考</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">lightnlp-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>情感极性分析，sa</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/tc/sa.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sa">
+<h1>情感极性分析，sa<a class="headerlink" href="#sa" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.训练数据<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>tsv文件格式</p>
+<p>训练数据示例如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        label   text
+0       0       备胎是硬伤！
+1       0       要说不满意的话，那就是动力了，1.5自然吸气发动机对这款车有种小马拉大车的感觉。如今天气这么热，上路肯定得开空调，开了后动力明显感觉有些不给力不过空调制冷效果还是不错的。
+2       0       油耗显示13升还多一点，希望慢慢下降。没有倒车雷达真可恨
+3       0       空调不太凉，应该是小问题。
+4       0       1、后排座椅不能平放；2、科技感不强，还不如百万帝豪，最希望增加车联网的车机。像你好博越一样。3、全景摄像头不清楚，晚上基本上用处不大
+5       1       车子外观好看，车内空间大。
+6       1       最满意的真的不只一点，概括一下最满意的就是性价比了。ps:虽然没有s7性价比高(原厂记录仪,绿净)
+7       0       底盘调教的很低，坐的感觉有些别扭，视角不是很好。
+8       0       开空调时，一档起步动力不足。车子做工有点马虎。
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2.使用示例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>训练<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lightnlp.tc</span> <span class="k">import</span> <span class="n">SA</span>
+
+<span class="c1"># 创建SA对象</span>
+<span class="n">sa_model</span> <span class="o">=</span> <span class="n">SA</span><span class="p">()</span>
+
+<span class="n">train_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/Projects/NLP/chinese_text_cnn/data/train.sample.tsv&#39;</span>
+<span class="n">dev_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/Projects/NLP/chinese_text_cnn/data/dev.sample.tsv&#39;</span>
+<span class="n">vec_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/Downloads/1410356697_浅笑哥fight/自然语言处理/词向量/sgns.zhihu.bigram-char&#39;</span>
+
+<span class="c1"># 只需指定训练数据路径，预训练字向量可选，开发集路径可选，模型保存路径可选。</span>
+<span class="n">sa_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">vectors_path</span><span class="o">=</span><span class="n">vec_path</span><span class="p">,</span> <span class="n">dev_path</span><span class="o">=</span><span class="n">dev_path</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./sa_saves&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>测试<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载模型，默认当前目录下的`saves`目录</span>
+<span class="n">sa_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./sa_saves&#39;</span><span class="p">)</span>
+
+<span class="c1"># 对train_path下的测试集进行读取测试</span>
+<span class="n">sa_model</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>预测<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sa_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./sa_saves&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">sa_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;外观漂亮，安全性佳，动力够强，油耗够低&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>预测结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span> <span class="c1"># return格式为（预测概率，预测标签）</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, lightsmile
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

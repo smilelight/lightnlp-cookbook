@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>文本摘要，ts &mdash; lightnlp-cookbook 0.3.3 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="句子关系，sr" href="../sr/index.html" />
+    <link rel="prev" title="聊天机器人，cb" href="cb.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> lightnlp-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../statements.html">声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">模型</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">教程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../we/index.html">词向量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tc/index.html">文本分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sl/index.html">序列标注</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">文本生成</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lm.html">语言模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mt.html">机器翻译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cb.html">聊天机器人</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">文本摘要</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sr/index.html">句子关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sp/index.html">结构分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/index.html">工具模块</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture.html">架构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">参考</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">lightnlp-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">各模块使用教程</a> &raquo;</li>
+        
+          <li><a href="index.html">文本生成，tg</a> &raquo;</li>
+        
+      <li>文本摘要，ts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/tg/ts.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ts">
+<h1>文本摘要，ts<a class="headerlink" href="#ts" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.训练数据<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>tsv文件格式</p>
+<p>训练数据示例如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>徐州18岁农家女孩宋爽，今年考入清华大学。除了自己一路闯关，年年拿奖，还帮妹妹、弟弟制定学习计划，姐弟仨齐头并进，妹妹也考上区里最好的中学。这个家里的收入，全靠父亲务农和打零工，但宋爽懂事得让人心疼，曾需要200元奥数竞赛的教材费，她羞于开口，愣是急哭了... 戳腾讯公益帮帮她们！#助学圆梦# 江苏新闻的秒拍视频   徐州农家女孩考上清华，她的懂事让人心酸…
+盖被子，摇摇篮，汪星人简直要把萌娃宠上天～细致周到有耐心，脾气还好，汪星人不愧是一届带娃好手[笑而不语]偶买噶视频的秒拍视频      带娃好手汪星人！把宝宝们宠上天[憧憬]
+人们通常被社会赋予的&quot;成功&quot;所定义，“做什么工作”“赚多少钱”都用来评判一个人的全部价值，很多人出现身份焦虑。身份焦虑不仅影响幸福感，还会导致精神压力，甚至自杀。如果你也有身份焦虑，这个短片或许会有帮助。秒拍视频  感到压力大的同学看过来！如何缓解身份焦虑？[并不简单]
+网友@星蓝seiran 教大家自制的捕捉器教程，简单方便，里面的洗洁精换成肥皂水或洗衣粉水都可以（用于溶解蟑螂腹部油脂防止爬出），白糖稍微多放点。怕蟑螂的童鞋，可以换成不透明的瓶子。转需~     这个厉害了！[good]
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>2.使用示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>训练<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lightnlp.tg</span> <span class="k">import</span> <span class="n">TS</span>
+
+<span class="n">ts_model</span> <span class="o">=</span> <span class="n">TS</span><span class="p">()</span>
+
+<span class="n">train_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/corpus/text_summarization/ts.train.sample.tsv&#39;</span>
+<span class="n">dev_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/corpus/text_summarization/ts.test.sample.tsv&#39;</span>
+<span class="n">vec_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/embedding/word/sgns.zhihu.bigram-char&#39;</span>
+
+<span class="n">ts_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">vectors_path</span><span class="o">=</span><span class="n">vec_path</span><span class="p">,</span> <span class="n">dev_path</span><span class="o">=</span><span class="n">train_path</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./ts_saves&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>测试<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./ts_saves&#39;</span><span class="p">)</span>
+
+<span class="n">ts_model</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>预测<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            近日，因天气太热，安徽一老太在买肉路上突然眼前一黑，摔倒在地。她怕别人不扶她，连忙说&quot;快扶我起来，我不讹你，地上太热我要熟了！&quot;这一喊周围人都笑了，老人随后被扶到路边休息。(颍州晚报)[话筒]最近老人尽量避免出门!</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ts_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_str</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>预测结果为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;，我不讹你，地上太热我要熟了！[允悲]&#39;</span><span class="p">,</span> <span class="mf">0.03261186463844203</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sr/index.html" class="btn btn-neutral float-right" title="句子关系，sr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cb.html" class="btn btn-neutral float-left" title="聊天机器人，cb" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, lightsmile
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

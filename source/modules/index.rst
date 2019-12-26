@@ -1,0 +1,15 @@
+各模块使用教程
+=============================================
+
+.. toctree::
+   :maxdepth: 1
+   
+   词向量 </modules/we/index>
+   文本分类 </modules/tc/index>
+   序列标注 </modules/sl/index>
+   文本生成 </modules/tg/index>
+   句子关系 </modules/sr/index>
+   结构分析 </modules/sp/index>
+   工具模块 </modules/tools/index>
+
+

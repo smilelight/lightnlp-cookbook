@@ -1,0 +1,58 @@
+# 项目组织结构
+
+## 项目架构
+
+- base
+  - config.py
+  - model.py
+  - module.py
+  - tool.py
+- sl，序列标注
+  - ner，命名实体识别
+  - cws，中文分词
+  - pos，词性标注
+  - srl，语义角色标注
+- sp，结构分析
+  - tdp，基于转移的依存句法分析
+  - gdp，基于图的依存句法分析
+- sr，句子关系
+  - ss，句子相似度
+  - te，文本蕴含
+- tc，文本分类
+  - re, 关系抽取
+  - sa，情感分析
+- tg，文本生成
+  - cb, 聊天机器人
+  - lm，语言模型
+  - mt，机器翻译
+  - ts，文本摘要
+- utils
+- we，词向量
+  - cbow， 词袋模型
+  - skip_gram，跳字模型
+
+## 架构说明
+
+### base目录
+
+放一些基础的模块实现，其他的高层业务模型以及相关训练代码都从此module继承相应父类。
+
+#### config
+
+存放模型训练相关的超参数等配置信息
+
+#### model
+
+模型的实现抽象基类，包含`base.model.BaseConfig`和`base.model.BaseModel`，包含`load`、`save`等方法
+
+#### module
+
+业务模块的训练验证测试等实现抽象基类，包含`base.module.Module`，包含`train`、`load`、`_validate`、`test`等方法
+
+#### tool
+
+业务模块的数据处理抽象基类，包含`base.tool.Tool`，包含`get_dataset`、`get_vectors`、`get_vocab`、`get_iterator`、`get_score`等方法
+
+### util目录
+
+放一些通用的方法

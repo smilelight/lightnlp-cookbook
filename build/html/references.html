@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>参考 &mdash; lightnlp-cookbook 0.3.3 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="架构" href="architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> lightnlp-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">架构</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#deep-learning">Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nlp">NLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytorch">Pytorch教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#torchtext">torchtext介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">其他工具模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">词向量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">数据集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">序列标注</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">文本分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">命名实体识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">关系抽取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">事件抽取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">文本生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">语句相似度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">文本蕴含</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">中文分词</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">词性标注</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">指代消解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">依存句法分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">自动摘要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">阅读理解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">其他</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lightnlp-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>参考</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/references.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>参考<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="deep-learning">
+<h2>Deep Learning<a class="headerlink" href="#deep-learning" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/48302810/whats-the-difference-between-hidden-and-output-in-pytorch-lstm">What’s the difference between “hidden” and “output” in PyTorch LSTM?</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/48187283/whats-the-difference-between-lstm-and-lstmcell">What’s the difference between LSTM() and LSTMCell()?</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/44238154/what-is-the-difference-between-luong-attention-and-bahdanau-attention">What is the difference between Luong Attention and Bahdanau Attention?</a></p></li>
+<li><p><a class="reference external" href="https://aiuai.cn/aifarm904.html">深度学习框架技术剖析(转)</a></p></li>
+<li><p><a class="reference external" href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html">Attention? Attention!</a></p></li>
+</ul>
+</div>
+<div class="section" id="nlp">
+<h2>NLP<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.jiqizhixin.com/articles/2016-11-15-5">基于表示学习的信息抽取方法浅析</a></p></li>
+<li><p><a class="reference external" href="http://www.shuang0420.com/2018/09/15/%E7%9F%A5%E8%AF%86%E6%8A%BD%E5%8F%96-%E5%AE%9E%E4%BD%93%E5%8F%8A%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/">知识抽取-实体及关系抽取</a></p></li>
+<li><p><a class="reference external" href="http://www.shuang0420.com/2018/10/15/%E7%9F%A5%E8%AF%86%E6%8A%BD%E5%8F%96-%E4%BA%8B%E4%BB%B6%E6%8A%BD%E5%8F%96/">知识抽取-事件抽取</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>知识图谱<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mp.weixin.qq.com/s/STflo3c8nyG6iHh9dEeKOQ">翻译模型(Trans系列)的知识表示学习</a></p></li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/30320631">知识图谱向量化表示</a></p></li>
+</ul>
+</div>
+<div class="section" id="pytorch">
+<h2>Pytorch教程<a class="headerlink" href="#pytorch" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/31495102">PyTorch 常用方法总结4：张量维度操作（拼接、维度扩展、压缩、转置、重复……）</a></p></li>
+<li><p><a class="reference external" href="https://www.cnblogs.com/sbj123456789/p/9834018.html">Pytorch中的RNN之pack_padded_sequence()和pad_packed_sequence()</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/u012436149/article/details/54645162">pytorch学习笔记（二）：gradient</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/monchin/article/details/79787621">torch.multinomial()理解</a></p></li>
+<li><p><a class="reference external" href="https://www.cnblogs.com/king-lps/p/8570021.html">Pytorch 细节记录</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/53231571/what-does-flatten-parameters-do">What does flatten_parameters() do?</a></p></li>
+<li><p><a class="reference external" href="https://www.cnblogs.com/HongjianChen/p/9450987.html">关于Pytorch的二维tensor的gather和scatter_操作用法分析</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/qq_16234613/article/details/79827006">Pytorch scatter_ 理解轴的含义</a></p></li>
+<li><p><a class="reference external" href="https://discuss.pytorch.org/t/model-eval-vs-with-torch-no-grad/19615">‘model.eval()’ vs ‘with torch.no_grad()’</a></p></li>
+<li><p><a class="reference external" href="https://www.msra.cn/zh-cn/news/features/gan-20170511">到底什么是生成式对抗网络GAN？</a></p></li>
+</ul>
+</div>
+<div class="section" id="torchtext">
+<h2>torchtext介绍<a class="headerlink" href="#torchtext" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/pytorch/text">torchtext</a></p></li>
+<li><p><a class="reference external" href="http://anie.me/On-Torchtext/">A Tutorial on Torchtext</a></p></li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/37223078">Torchtext 详细介绍</a></p></li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/31139113">torchtext入门教程，轻松玩转文本数据处理</a></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>其他工具模块<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.csdn.net/langb2014/article/details/54798823">python的Tqdm模块</a></p></li>
+<li><p><a class="reference external" href="https://github.com/kmkurn/pytorch-crf">pytorch-crf</a></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>词向量<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/liuhuanyong/ChineseEmbedding">ChineseEmbedding</a></p></li>
+<li><p><a class="reference external" href="https://github.com/weberrr/pytorch_word2vec">pytorch_word2vec</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jeffchy/pytorch-word-embedding">pytorch-word-embedding</a></p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>数据集<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/lancopku/Chinese-Literature-NER-RE-Dataset">Chinese-Literature-NER-RE-Dataset</a></p></li>
+<li><p><a class="reference external" href="https://github.com/liuhuanyong/ChineseTextualInference">ChineseTextualInference</a></p></li>
+<li><p><a class="reference external" href="https://www.jianshu.com/p/8f52352f0748">中文短文本摘要数据集</a></p></li>
+<li><p><a class="reference external" href="https://mlln.cn/2018/08/26/%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91%E8%AF%AD%E6%96%99%E5%BA%93%E5%A4%A7%E5%85%A8(%E5%85%8D%E8%B4%B9%E4%B8%8B)/">机器翻译语料库大全(免费下)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/codemayq/chinese_chatbot_corpus">中文公开聊天语料库</a></p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>序列标注<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Sequence-Labeling">a-PyTorch-Tutorial-to-Sequence-Labeling</a></p></li>
+<li><p><a class="reference external" href="https://github.com/AdolHong/sequence_tagging">sequence_tagging</a></p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>文本分类<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bigboNed3/chinese_text_cnn">chinese_text_cnn</a></p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>命名实体识别<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/AdolHong/sequence_tagging">sequence_tagging</a></p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>关系抽取<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/buppt/ChineseNRE">ChineseNRE</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ShomyLiu/pytorch-pcnn">pytorch-pcnn</a></p></li>
+<li><p><a class="reference external" href="http://shomy.top/2018/02/28/relation-extraction/">关系抽取(分类)总结</a></p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>事件抽取<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>这里目前粗浅的将语义角色标注技术实现等同于事件抽取任务。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://wiki.jikexueyuan.com/project/deep-learning/wordSence-identify.html">语义角色标注</a></p></li>
+<li><p><a class="reference external" href="https://github.com/glample/tagger/blob/master/utils.py">iobes_iob 与 iob_ranges 函数借鉴</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zxplkyy/BiRNN-SRL">BiRNN-SRL</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Nrgeup/chinese_semantic_role_labeling">chinese_semantic_role_labeling</a></p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>语言模型<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/spro/char-rnn.pytorch">char-rnn.pytorch</a></p></li>
+<li><p><a class="reference external" href="https://github.com/deeplearningathome/pytorch-language-model">Simple Word-based Language Model in PyTorch</a></p></li>
+<li><p><a class="reference external" href="https://shenxiaohai.me/2018/10/20/pytorch-tutorial-intermediate-05/">PyTorch 中级篇（5）：语言模型（Language Model (RNN-LM)）</a></p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>文本生成<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.msra.cn/zh-cn/news/features/ruihua-song-20161226">好玩的文本生成</a></p></li>
+<li><p><a class="reference external" href="https://puke3615.github.io/2018/08/10/ML-Text-Generator/">基于深度学习的文本生成过程</a></p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>语句相似度<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/WEAINE/siamese_lstm">siamese_lstm</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yanqiangmiffy/sentence-similarity">sentence-similarity</a></p></li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h2>文本蕴含<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/liuhuanyong/ChineseTextualInference">ChineseTextualInference</a></p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>中文分词<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://download.csdn.net/download/qq_36330643/10514771">中文自然语言处理中文分词训练语料</a></p></li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/56988686">中文分词、词性标注联合模型</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bamtercelboo/pytorch_Joint-Word-Segmentation-and-POS-Tagging">pytorch_Joint-Word-Segmentation-and-POS-Tagging</a></p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h2>词性标注<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.csdn.net/qq_41853758/article/details/82924325">常见中文词性标注集整理</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/zhoubl668/article/details/6942251">分词：词性标注北大标准</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/memray/article/details/14105643">ICTCLAS 汉语词性标注集 中科院</a></p></li>
+<li><p><a class="reference external" href="https://www.jianshu.com/p/206caa232ded">中文文本语料库整理</a></p></li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/56988686">中文分词、词性标注联合模型</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bamtercelboo/pytorch_Joint-Word-Segmentation-and-POS-Tagging">pytorch_Joint-Word-Segmentation-and-POS-Tagging</a></p></li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h2>指代消解<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.csdn.net/sparkexpert/article/details/79868335">AllenNLP系列文章之四：指代消解</a></p></li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h2>依存句法分析<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/corpus/chinese-treebank.html#h3-6">汉语树库</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1611.01734">Deep Biaffine Attention for Neural Dependency Parsing</a></p></li>
+<li><p><a class="reference external" href="https://xiaoxiaoaurora.github.io/2018/07/03/%E4%B8%AD%E6%96%87%E5%8F%A5%E6%B3%95%E7%BB%93%E6%9E%84/">中文句法结构</a></p></li>
+<li><p><a class="reference external" href="https://nlpcs.com/article/syntactic-parsing-by-dependency">句法分析之依存句法</a></p></li>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/parsing/deep-biaffine-attention-for-neural-dependency-parsing.html">Deep Biaffine Attention for Neural Dependency Parsing, hankcs简要解读</a></p></li>
+<li><p><a class="reference external" href="https://www.transacl.org/ojs/index.php/tacl/article/viewFile/885/198">Simple and Accurate Dependency Parsing Using Bidirectional LSTM Feature Representations</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zysite/biaffine-parser">biaffine-parser</a></p></li>
+<li><p><a class="reference external" href="https://github.com/rguthrie3/DeepDependencyParsingProblemSet">DeepDependencyParsingProblemSet</a></p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h2>自动摘要<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.csdn.net/Mbx8X9u/article/details/80491214">干货｜当深度学习遇见自动文本摘要，seq2seq+attention</a></p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2>阅读理解<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.imooc.com/article/28709">ASReader：一个经典的机器阅读理解深度学习模型</a></p></li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h2>聊天机器人<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ywk991112/pytorch-chatbot">ywk991112 / pytorch-chatbot</a></p></li>
+<li><p><a class="reference external" href="https://github.com/keon/seq2seq">keon / seq2seq</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bentrevett/pytorch-seq2seq">bentrevett / pytorch-seq2seq</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IBM/pytorch-seq2seq">IBM / pytorch-seq2seq</a></p></li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h2>其他<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.jianshu.com/p/bbe6dfac9bc7">基于距离的算法 曼哈顿，欧氏等</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/heyongluoyao8/article/details/49408131">在分类中如何处理训练集中不平衡问题</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/qq_22238533/article/details/70917102">Python-Pandas 如何shuffle（打乱）数据？</a></p></li>
+<li><p><a class="reference external" href="https://www.cnblogs.com/xubing-613/p/6119162.html">Python DataFrame 如何删除原来的索引，重新建立索引</a></p></li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/44503744">Pandas在读取csv时如何设置列名–常用方法集锦</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/luckytanggu/article/details/53649156">Python中__repr__和__str__区别</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/w5688414/article/details/78489277">Python3:ImportError: No module named ‘compiler.ast’</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/2/library/2to3.html">Automated Python 2 to 3 code translation</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/carfge/article/details/79691360">git 拉取远程分支到本地</a></p></li>
+<li><p><a class="reference external" href="https://www.jianshu.com/p/834a02d085b6">OpenCC - 简体繁体转换</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="architecture.html" class="btn btn-neutral float-left" title="架构" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, lightsmile
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

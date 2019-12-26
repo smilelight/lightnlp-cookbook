@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.训练数据 &mdash; lightnlp-cookbook 0.3.3 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> lightnlp-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../前言.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../当前已实现功能.html">当前已实现的功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../安装.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../模型.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">各模块使用教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../项目组织架构.html">项目组织结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">todo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../统一参考.html">参考</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">lightnlp-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>1.训练数据</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/句子关系（sr）/文本蕴涵（te）.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1.训练数据<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>tsv文件类型</p>
+<p>训练数据示例如下，其中各列分别为<code class="docutils literal notranslate"><span class="pre">前提</span></code>、<code class="docutils literal notranslate"><span class="pre">假设</span></code>、<code class="docutils literal notranslate"><span class="pre">关系</span></code>，其中关系包括<code class="docutils literal notranslate"><span class="pre">entailment，蕴含</span></code>、<code class="docutils literal notranslate"><span class="pre">neutral，中立</span></code>、<code class="docutils literal notranslate"><span class="pre">contradiction，矛盾</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>是的，我想一个洞穴也会有这样的问题      我认为洞穴可能会有更严重的问题。        neutral
+几周前我带他和一个朋友去看幼儿园警察    我还没看过幼儿园警察，但他看了。        contradiction
+航空旅行的扩张开始了大众旅游的时代，希腊和爱琴海群岛成为北欧人逃离潮湿凉爽的夏天的令人兴奋的目的地。    航空旅行的扩大开始了许多旅游业的发展。  entailment
+当两名工人待命时，一条大的白色管子正被放在拖车上。      这些人正在监督管道的装载。      neutral
+男人俩互相交换一个很大的金属环，骑着火车向相反的方向行驶。      婚礼正在教堂举行。      contradiction
+一个小男孩在秋千上玩。  小男孩玩秋千    entailment
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h1>2.使用示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id3">
+<h2>训练<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lightnlp.sr</span> <span class="k">import</span> <span class="n">TE</span>
+
+<span class="n">te_model</span> <span class="o">=</span> <span class="n">TE</span><span class="p">()</span>
+
+<span class="n">train_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/Projects/liuhuaiyong/ChineseTextualInference/data/te_train.tsv&#39;</span>
+<span class="n">dev_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/Projects/liuhuaiyong/ChineseTextualInference/data/te_dev.tsv&#39;</span>
+<span class="n">vec_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/embedding/char/token_vec_300.bin&#39;</span>
+
+<span class="n">te_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">vectors_path</span><span class="o">=</span><span class="n">vec_path</span><span class="p">,</span> <span class="n">dev_path</span><span class="o">=</span><span class="n">train_path</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./te_saves&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>测试<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">te_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./te_saves&#39;</span><span class="p">)</span>
+<span class="n">te_model</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">dev_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>预测<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">te_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;一个小男孩在秋千上玩。&#39;</span><span class="p">,</span> <span class="s1">&#39;小男孩玩秋千&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">te_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;两个年轻人用泡沫塑料杯子喝酒时做鬼脸。&#39;</span><span class="p">,</span> <span class="s1">&#39;两个人在跳千斤顶。&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>预测结果为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.4755808413028717</span><span class="p">,</span> <span class="s1">&#39;entailment&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mf">0.5721057653427124</span><span class="p">,</span> <span class="s1">&#39;contradiction&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, lightsmile
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

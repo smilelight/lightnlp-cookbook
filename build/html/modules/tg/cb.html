@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>聊天机器人，cb &mdash; lightnlp-cookbook 0.3.3 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="文本摘要，ts" href="ts.html" />
+    <link rel="prev" title="机器翻译，mt" href="mt.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> lightnlp-cookbook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preface.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../statements.html">声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.html">模型</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">教程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../we/index.html">词向量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tc/index.html">文本分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sl/index.html">序列标注</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">文本生成</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lm.html">语言模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mt.html">机器翻译</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">聊天机器人</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1.训练数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ts.html">文本摘要</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sr/index.html">句子关系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sp/index.html">结构分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/index.html">工具模块</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture.html">架构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">参考</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">lightnlp-cookbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">各模块使用教程</a> &raquo;</li>
+        
+          <li><a href="index.html">文本生成，tg</a> &raquo;</li>
+        
+      <li>聊天机器人，cb</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/tg/cb.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cb">
+<h1>聊天机器人，cb<a class="headerlink" href="#cb" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.训练数据<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>tsv文件格式</p>
+<p>训练数据示例如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>呵呵    是王若猫的。
+不是    那是什么？
+怎么了  我很难过，安慰我~
+开心点哈,一切都会好起来 嗯 会的
+我还喜欢她,怎么办       我帮你告诉她？发短信还是打电话？
+短信    嗯嗯。我也相信
+你知道谁么      肯定不是我，是阮德培
+许兵是谁        吴院四班小帅哥
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>2.使用示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>训练<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lightnlp.tg</span> <span class="k">import</span> <span class="n">CB</span>
+
+<span class="n">cb_model</span> <span class="o">=</span> <span class="n">CB</span><span class="p">()</span>
+
+<span class="n">train_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/corpus/chatbot/chat.train.sample.tsv&#39;</span>
+<span class="n">dev_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/corpus/chatbot/chat.test.sample.tsv&#39;</span>
+<span class="n">vec_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/embedding/word/sgns.zhihu.bigram-char&#39;</span>
+
+<span class="n">cb_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">vectors_path</span><span class="o">=</span><span class="n">vec_path</span><span class="p">,</span> <span class="n">dev_path</span><span class="o">=</span><span class="n">train_path</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./cb_saves&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>测试<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cb_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./cb_saves&#39;</span><span class="p">)</span>
+
+<span class="n">cb_model</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>预测<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;我还喜欢她,怎么办&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;怎么了&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;开心一点&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>预测结果为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;我你告诉她？发短信还是打电话？&#39;</span><span class="p">,</span> <span class="mf">0.8164891742422521</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;我难过，安慰我&#39;</span><span class="p">,</span> <span class="mf">0.5596837521537591</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;嗯会的&#39;</span><span class="p">,</span> <span class="mf">0.595637918475396</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ts.html" class="btn btn-neutral float-right" title="文本摘要，ts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mt.html" class="btn btn-neutral float-left" title="机器翻译，mt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, lightsmile
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
