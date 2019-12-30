@@ -7,7 +7,7 @@ lightNLP, 很基础的自然语言处理框架
 =============================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    
    前言 </preface>
    声明 </statements>

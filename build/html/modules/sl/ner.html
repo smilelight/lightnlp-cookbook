@@ -375,14 +375,14 @@
 <span class="n">dev_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/corpus/ner/test.sample.txt&#39;</span>
 <span class="n">vec_path</span> <span class="o">=</span> <span class="s1">&#39;/home/lightsmile/NLP/embedding/char/token_vec_300.bin&#39;</span>
 
-<span class="c1"># 只需指定训练数据路径，预训练字向量可选，开发集路径可选，模型保存路径可选。</span>
-<span class="n">ner_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">vectors_path</span><span class="o">=</span><span class="n">vec_path</span><span class="p">,</span> <span class="n">dev_path</span><span class="o">=</span><span class="n">dev_path</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./ner_saves&#39;</span><span class="p">)</span>
+<span class="c1"># 只需指定训练数据路径和TensorBoard日志文件路径，预训练字向量可选，开发集路径可选，模型保存路径可选（模型保存路径默认为`xx_saves`，其中xx为模型简称，如ner）。</span>
+<span class="n">ner_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">vectors_path</span><span class="o">=</span><span class="n">vec_path</span><span class="p">,</span> <span class="n">dev_path</span><span class="o">=</span><span class="n">dev_path</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./ner_saves&#39;</span><span class="p">,</span> <span class="n">log_dir</span><span class="o">=</span><span class="s1">&#39;E:/Test/tensorboard/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
 <h3>2.测试<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载模型，默认当前目录下的`saves`目录</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载模型，默认当前目录下的`ner_saves`目录</span>
 <span class="n">ner_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;./ner_saves&#39;</span><span class="p">)</span>
 <span class="c1"># 对train_path下的测试集进行读取测试</span>
 <span class="n">ner_model</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
@@ -400,6 +400,25 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="s1">&#39;我们&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Person&#39;</span><span class="p">}]</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="id6">
+<h3>4.查看训练效果<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>命令行中执行以下命令，其中<code class="docutils literal notranslate"><span class="pre">E:\Test\tensorBoard</span></code>修改为模型训练时日志存储路径，port端口指定可选：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tensorboard --logdir<span class="o">=</span>E:<span class="se">\T</span>est<span class="se">\t</span>ensorBoard --port<span class="o">=</span><span class="m">2019</span>
+</pre></div>
+</div>
+<p>可以看到类似如下效果：</p>
+<p><img alt="tensorboard" src="../../_images/tensorboard.jpg" /></p>
+</div>
+<div class="section" id="id7">
+<h3>5.部署服务<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ner_model</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>其中所有参数都可选，<code class="docutils literal notranslate"><span class="pre">host</span></code>参数默认为<code class="docutils literal notranslate"><span class="pre">localhost</span></code>，<code class="docutils literal notranslate"><span class="pre">port</span></code>端口将由程序自动向系统申请空闲端口，默认不开启<code class="docutils literal notranslate"><span class="pre">debug</span></code>模式。</p>
+<p>可以使用Postman或者编写程序进行调用测试，如下图：
+<img alt="postman" src="../../_images/postman.jpg" />
+<img alt="jupyter-notebook" src="../../_images/jupyter-notebook.jpg" /></p>
 </div>
 </div>
 </div>
